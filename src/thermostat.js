@@ -1,10 +1,11 @@
 function Thermostat() {
-  this.temp = 20;
+  this.temp = DEFAULT_TEMP;
   this.MIN_TEMP = 10;
   this.powerSavingMode = true;
   this.maxTemp = 25;
 };
 
+const DEFAULT_TEMP = 20;
 
 Thermostat.prototype.up = function() {
   return this.temp += 1;
@@ -34,4 +35,8 @@ Thermostat.prototype.powerSavingModeSwitch = function() {
     this.powerSavingMode = true;
     this.maxTemp = 25;
   }
+
+  Thermostat.prototype.reset = function() {
+    return this.temp = DEFAULT_TEMP;
+  };
 };

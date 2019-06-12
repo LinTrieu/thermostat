@@ -58,5 +58,10 @@ describe('Thermostat', function() {
     thermostat.powerSavingModeSwitch();
     expect(thermostat.maxTemp).toBe(25);
     });
+  
+    it('can reset the temp to 20 degrees', function() {
+      thermostat.reset();
+      expect(thermostat.temp).toBe(20);
+    });
 
 });
