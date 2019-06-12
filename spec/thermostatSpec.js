@@ -7,7 +7,7 @@ describe('Thermostat', function() {
   });
 
   it('has a temperature', function(){
-    expect(thermostat.temp).toBe(20)
+    expect(thermostat.temp).toBe(20);
   });
 
   it('can increase temp', function(){
@@ -19,10 +19,13 @@ describe('Thermostat', function() {
   });
 
   it('has a minimum temp', function(){
-    expect(thermostat.giveMinTemp()).toBe(10)  
+    expect(thermostat.giveMinTemp()).toBe(10);  
   });
 
-  // it('cannot be lower than the minimum temp', function(){
-  //   expect(thermostat.MIN_TEMP).toBe(10)  
-  // });
+  it('cannot be lower than the minimum temp', function(){
+    [1,2,3,4,5,6,7,8,9,10].forEach(function(i){
+      thermostat.down();
+    });
+    expect(function(){thermostat.down()}).toThrow(new Error("you will freeze if you do that!")); 
+  });
 });
