@@ -18,4 +18,11 @@ describe('Thermostat', function() {
     expect(thermostat.down()).toBe(19);
   });
 
+  it('has a minimum temp', function(){
+    expect(thermostat.giveMinTemp()).toBe(10)  
+  });
+
+  // it('cannot be lower than the minimum temp', function(){
+  //   expect(thermostat.MIN_TEMP).toBe(10)  
+  // });
 });
