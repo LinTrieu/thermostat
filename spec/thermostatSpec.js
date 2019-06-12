@@ -28,4 +28,12 @@ describe('Thermostat', function() {
     });
     expect(function(){thermostat.down()}).toThrow(new Error("you will freeze if you do that!")); 
   });
+
+  it('by default power saving mode is on', function(){
+    expect(thermostat.powerSavingMode).toBe(true);
+  });
+
+  // it('by default power saving mode is on', function(){
+  //   expect(thermostat.powerSavingMode).toBe(true);
+  // });
 });
