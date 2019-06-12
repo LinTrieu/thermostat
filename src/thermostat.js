@@ -34,22 +34,21 @@ Thermostat.prototype.powerSavingModeSwitch = function() {
   else {
     this.powerSavingMode = true;
     this.maxTemp = 25;
-  }
+  }};
 
-  Thermostat.prototype.reset = function() {
-    return this.temp = this.DEFAULT_TEMP;
-  };
-
-  Thermostat.prototype.showUsage = function() {
-    if(this.temp < 18) {
-      this.currentUsageStatus = 'low-usage';
-    }
-    else if(this.temp > 17 && this.temp < 25) {
-      this.currentUsageStatus = 'medium-usage';
-    }
-    else {
-      this.currentUsageStatus = 'high-usage';
-    }
-  };
-
+Thermostat.prototype.reset = function() {
+  return this.temp = this.DEFAULT_TEMP;
 };
+
+Thermostat.prototype.showUsage = function() {
+  if(this.temp < 18) {
+    this.currentUsageStatus = 'low-usage';
+  }
+  else if(this.temp > 17 && this.temp < 25) {
+    this.currentUsageStatus = 'medium-usage';
+  }
+  else {
+    this.currentUsageStatus = 'high-usage';
+  }
+};
+
