@@ -42,13 +42,16 @@ Thermostat.prototype.powerSavingModeSwitch = function() {
 
   Thermostat.prototype.showUsage = function() {
     if(this.temp < 18) {
-      this.currentUsageStatus = 'low-usage';
+       this.currentUsageStatus = 'low-usage';
+       return this.currentUsageStatus;
     }
     else if(this.temp > 17 && this.temp < 25) {
-      this.currentUsageStatus = 'medium-usage';
+       this.currentUsageStatus = 'medium-usage';
+      return this.currentUsageStatus;
     }
     else {
       this.currentUsageStatus = 'high-usage';
+      return this.currentUsageStatus;
     }
   };
 
