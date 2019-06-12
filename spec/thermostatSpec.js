@@ -59,32 +59,35 @@ describe('Thermostat', function() {
     expect(thermostat.maxTemp).toBe(25);
     });
   
-    it('can reset the temp to 20 degrees', function() {
-      thermostat.reset();
-      expect(thermostat.temp).toBe(20);
-    });
+  it('can reset the temp to 20 degrees', function() {
+    thermostat = new Thermostat();
+    console.log(thermostat);
+    thermostat.reset();
+    expect(thermostat.temp).toBe(20);
+  });
 
-    it('can show low usage status', function(){
-      for(var i = 0; i < 3; i++){
-        thermostat.down();
-      }
-      thermostat.showUsage();
-      expect(thermostat.currentUsageStatus).toBe('low-usage')
-    });
+  it('can show low usage status', function(){
+    thermostat = new Thermostat();
+    for(var i = 0; i < 3; i++){
+      thermostat.down();
+    }
+    thermostat.showUsage();
+    expect(thermostat.currentUsageStatus).toBe('low-usage')
+  });
 
-    it('can show medium usage status', function(){
-      for(var i = 0; i < 3; i++){
-        thermostat.up();
-      }
-      expect(thermostat.currentUsageStatus).toBe('medium-usage')
-    });
+  it('can show medium usage status', function(){
+    for(var i = 0; i < 3; i++){
+      thermostat.up();
+    }
+    expect(thermostat.currentUsageStatus).toBe('medium-usage')
+  });
 
-    it('can show high usage status', function(){
-      for(var i = 0; i < 5; i++){
-        thermostat.up();
-      }
-      thermostat.showUsage();
-      expect(thermostat.currentUsageStatus).toBe('high-usage')
-    });
+  it('can show high usage status', function(){
+    for(var i = 0; i < 5; i++){
+      thermostat.up();
+    }
+    thermostat.showUsage();
+    expect(thermostat.currentUsageStatus).toBe('high-usage')
+  });
 
 });
