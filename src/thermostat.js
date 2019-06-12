@@ -23,3 +23,10 @@ Thermostat.prototype.giveMinTemp = function() {
 Thermostat.prototype.isMinTemp = function() {
   return this.temp === this.MIN_TEMP
 };
+
+Thermostat.prototype._powerSavingModeSwitch = function() {
+  if(this.powerSavingMode){
+    return this.powerSavingMode = false;
+  }
+  else {return this.powerSavingMode = true}
+};
