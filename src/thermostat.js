@@ -2,6 +2,7 @@ function Thermostat() {
   this.temp = 20;
   this.MIN_TEMP = 10;
   this.powerSavingMode = true;
+  this.maxTemp = 25;
 };
 
 
@@ -24,9 +25,13 @@ Thermostat.prototype.isMinTemp = function() {
   return this.temp === this.MIN_TEMP
 };
 
-Thermostat.prototype._powerSavingModeSwitch = function() {
+Thermostat.prototype.powerSavingModeSwitch = function() {
   if(this.powerSavingMode){
-    return this.powerSavingMode = false;
+    this.powerSavingMode = false;
+    this.maxTemp = 32;
   }
-  else {return this.powerSavingMode = true}
+  else {
+    this.powerSavingMode = true;
+    this.maxTemp = 25;
+  }
 };
