@@ -26,4 +26,4 @@ Link to challenge instructions: https://github.com/makersacademy/course/blob/mas
 ### Authors
 * Tues - Lin
 * Wed - Lin and Anna
-* Thurs - Lin
+* Thurs - Lin and Egle
