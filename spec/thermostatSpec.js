@@ -66,28 +66,23 @@ describe('Thermostat', function() {
     expect(thermostat.temp).toBe(20);
   });
 
-  it('can show low usage status', function(){
+  it('can show low-usage status', function(){
     thermostat = new Thermostat();
     for(var i = 0; i < 3; i++){
       thermostat.down();
     }
-    thermostat.showUsage();
-    expect(thermostat.currentUsageStatus).toBe('low-usage')
+    expect(thermostat.energyUsage()).toEqual('low-usage')
   });
 
-  it('can show medium usage status', function(){
-    for(var i = 0; i < 3; i++){
-      thermostat.up();
-    }
-    expect(thermostat.currentUsageStatus).toBe('medium-usage')
+  it('can show medium-usage status', function(){
+    expect(thermostat.energyUsage()).toEqual('medium-usage')
   });
 
-  it('can show high usage status', function(){
-    for(var i = 0; i < 5; i++){
+  it('can show high-usage status', function(){
+    for(var i = 0; i < 6; i++){
       thermostat.up();
     }
-    thermostat.showUsage();
-    expect(thermostat.currentUsageStatus).toBe('high-usage')
+    expect(thermostat.energyUsage()).toEqual('high-usage')
   });
 
 });

@@ -4,7 +4,6 @@ function Thermostat() {
   this.MIN_TEMP = 10;
   this.powerSavingMode = true;
   this.maxTemp = 25;
-  this.currentUsageStatus = 'medium-usage';
   this.MAX_LIMIT_PSM_ON = 25;
   this.MAX_LIMIT_PSM_OFF = 32;
   this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
@@ -43,18 +42,14 @@ Thermostat.prototype.reset = function() {
   this.temp = this.DEFAULT_TEMP;
 };
 
-Thermostat.prototype.showUsage = function() {
-  if(this.temp < 18) {
-    this.currentUsageStatus = 'low-usage';
+Thermostat.prototype.energyUsage = function() {
+  if(this.temp < this.MEDIUM_ENERGY_USAGE_LIMIT) {
+    return 'low-usage';
   }
-  else if(this.temp > 17 && this.temp < 25) {
-    this.currentUsageStatus = 'medium-usage';
+  else if(this.temp >= this.MEDIUM_ENERGY_USAGE_LIMIT && this.temp <= this.MAX_LIMIT_PSM_ON ) {
+    return 'medium-usage';
   }
   else {
-    this.currentUsageStatus = 'high-usage';
+    return 'high-usage';
   }
-};
-
-Thermostat.prototype.reset = function() {
-  return this.temp = this.DEFAULT_TEMP;
 };
