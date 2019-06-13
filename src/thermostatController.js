@@ -3,6 +3,7 @@ $(document).ready(function(){
   var thermostat = new Thermostat();
 
   $('#temp-display').text(`Temperature: ${thermostat.temp} degrees`);
+  $('#power-saving-status').text(`Power saving status: ${thermostat.showPowerSaving()}`);
 
   $('#temperature-up').on('click', function(){
     thermostat.up();
@@ -19,7 +20,10 @@ $(document).ready(function(){
     $('#temp-display').text(`Temperature: ${thermostat.temp} degrees`);
   });
 
-
+  $('#powersaving-switch').on('click', function() {
+    thermostat.powerSavingModeSwitch();
+    $('#power-saving-status').text(`Power saving status: ${thermostat.showPowerSaving()}`);
+  });
 
 
 

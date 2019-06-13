@@ -51,5 +51,15 @@ Thermostat.prototype.energyUsage = function() {
   }
   else {
     return 'high-usage';
-  }
+  };
 };
+
+Thermostat.prototype.showPowerSaving = function() {
+  if(this.powerSavingMode) {
+    return "on";
+  } else {
+    return "off";
+  };
+};
+
+
