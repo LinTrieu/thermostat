@@ -5,6 +5,9 @@ function Thermostat() {
   this.powerSavingMode = true;
   this.maxTemp = 25;
   this.currentUsageStatus = 'medium-usage';
+  this.MAX_LIMIT_PSM_ON = 25;
+  this.MAX_LIMIT_PSM_OFF = 32;
+  this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
 };
 
 Thermostat.prototype.up = function() {
@@ -29,15 +32,15 @@ Thermostat.prototype.isMinTemp = function() {
 Thermostat.prototype.powerSavingModeSwitch = function() {
   if(this.powerSavingMode){
     this.powerSavingMode = false;
-    this.maxTemp = 32;
+    this.maxTemp = this.MAX_LIMIT_PSM_OFF;
   }
   else {
     this.powerSavingMode = true;
-    this.maxTemp = 25;
+    this.maxTemp = this.MAX_LIMIT_PSM_ON;
   }};
 
 Thermostat.prototype.reset = function() {
-  return this.temp = this.DEFAULT_TEMP;
+  this.temp = this.DEFAULT_TEMP;
 };
 
 Thermostat.prototype.showUsage = function() {
