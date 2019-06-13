@@ -55,3 +55,5 @@ Thermostat.prototype.showUsage = function() {
 Thermostat.prototype.reset = function() {
   return this.temp = this.DEFAULT_TEMP;
 };
+
+$(document).
